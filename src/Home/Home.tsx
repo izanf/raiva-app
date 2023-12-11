@@ -1,17 +1,24 @@
+import { Button } from "../components"
 import Container from "../components/Container"
+import useAuthentication from "../state/auth"
 
 import Menu from './Menu/Menu'
 
 const menuOptions = [
-  { iconName: 'file', title: 'Registrar novo caso', path: 'CasesRegister' },
+  { iconName: 'file', title: 'Novo caso', path: 'CasesRegister' },
   { iconName: 'folder', title: 'Casos registrados', path: 'CasesList' },
-  { iconName: 'y-combinator', title: 'Casos registrado2s' }
+  { iconName: 'y-combinator', title: 'Profilaxia', path: 'Prophylaxis' }
 ]
 
-const Home = ({ navigation }) => (
-  <Container py="32px">
-    <Menu data={menuOptions} navigation={navigation} />
-  </Container>
-)
+const Home = ({ navigation }) => {
+  const { logout } = useAuthentication()
+
+  return (
+    <Container py="32px">
+      <Menu data={menuOptions} navigation={navigation} />
+      <Button onPress={logout}>Logout</Button>
+    </Container>
+  )
+}
 
 export default Home

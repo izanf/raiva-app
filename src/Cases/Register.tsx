@@ -1,4 +1,7 @@
 import { useState } from "react"
+
+import * as API from '../services/api'
+
 import { Button, Container, Input } from "../components"
 
 const initialData = [
@@ -15,6 +18,7 @@ const inputComponent = {
 }
 
 const CasesRegister = () => {
+  const [isLoading, setIsLoading] = useState(false)
   const [data, setData] = useState(initialData)
 
   const handleChange = (field, value) => {
@@ -29,6 +33,19 @@ const CasesRegister = () => {
     const InputComponent = inputComponent[existsComponent ? componentType : 'string']
 
     return <InputComponent onChange={(value) => handleChange(key, value)} {...rest} />
+  }
+
+  const registerCase = async () => {
+    try {
+      setIsLoading(true)
+      const response = await API.registerCase(data)
+      alert('registradow')   
+
+    } catch (error) {
+
+    } finally {
+      setIsLoading(false)
+    }
   }
 
   return (
