@@ -10,7 +10,7 @@ import Input from '../components/Input'
 
 const Login = () => {
   const { login, error } = useAuthentication()
-  const [user, setUser] = useState('')
+  const [user, setUser] = useState('017.568.394-84')
 
   return (
     <Container flex="1" justifyContent="center">

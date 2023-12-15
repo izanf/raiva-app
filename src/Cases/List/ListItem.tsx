@@ -12,12 +12,12 @@ const IdWrapper = styled(Box)`
   justify-content: center;
 `
 
-const ListItem = ({ id, label, type }) => (
+const ListItem = ({ id, dataOcorrido, ruaOcorrido }) => (
   <Box flexDirection="row" alignItems="center" mb="8px">
     <IdWrapper>
       <Text>{id}</Text>
     </IdWrapper>
-    <Text flex="1" pl="8px">{label}</Text>
+    <Text flex="1" pl="8px">{dataOcorrido} - {ruaOcorrido}</Text>
     <Icon name="arrow-right" />
   </Box>
 )

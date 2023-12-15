@@ -7,17 +7,17 @@ export const login = (json): any => {
 }
 
 export const register = (body) => {
-  return api.post('/api/usuario/registrar-usuario', { body }).json()
+  return api.post('usuario/registrar-usuario', { body }).json()
 }
 
-export const listCases = () => {
-  return api.get('/api/caso/casos-por-usuario')
+export const listCases = (userId): Promise<any[]> => {
+  return api.get(`caso/casos?usuarioId=${userId}`).json()
 }
 
-export const registerCase = (body) => {
-  return api.post('/api/caso/registrar-caso', { body })
+export const registerCase = (userId, json) => {
+  return api.post(`caso/registrar-caso?usuarioId=${userId}`, { json }).json()
 }
 
 export const listHealthUnities = () => {
-  return api.get('/api/unidades-por-distrito')
+  return api.get('unidades-por-distrito')
 }

@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import styled from 'styled-components/native'
 
 import Box from './Box'
@@ -12,13 +13,19 @@ const InputRAW = styled.TextInput<{ borderColor: string }>`
 `
 
 const Input = ({ label, error,...props }) => {
+  const [showError, setShowError] = useState(false)
   const getStatus = () => {
-    if (error) return 'danger'
+    if (showError && error) return 'danger'
 
     return 'gray'
   }
 
-return (
+  const handleOnChange = (v) => {
+    setShowError(false)
+    props.onChange(v)
+  }
+
+  return (
     <Box>
       <Text fontSize="12">{label}</Text>
       <InputRAW {...props} onChangeText={props.onChange} borderColor={getStatus()} />

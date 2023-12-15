@@ -2,15 +2,19 @@ import { useState } from "react"
 
 import * as API from '../services/api'
 
+import useAuthentication from '../state/auth'
+
 import { Button, Container, Input } from "../components"
 
 const initialData = [
-  { key: 'name', label: 'Nome', value: '' },
-  { key: 'age', label: 'Idade', value: '' },
-  { key: 'eventDate', label: 'Data do evento', value: new Date() },
-  { key: 'animalType', label: 'Tipo do animal', value: '' },
-  { key: 'bodyLocationEvent', label: 'Local do evento', value: '' },
-  { key: 'animalLocation', label: 'Local do animal', value: '' }
+  { key: 'nomeVitima', label: 'Nome', value: 'Izanderson' },
+  { key: 'idadeVitima', label: 'Idade', value: '23' },
+  { key: 'dataOcorrido', label: 'Data do evento', value: new Date() },
+  { key: 'tipoAnimal', label: 'Tipo do animal', value: 'Cão' },
+  { key: 'bairroOcorrido', label: 'Local do evento', value: 'Neopolis' },
+  { key: 'localMordida', label: 'Local do animal', value: 'braço' },
+  { key: 'vacinado', label: 'Vacinado', value: false },
+  { key: 'domestico', label: 'Domestico', value: false }
 ]
 
 const inputComponent = {
@@ -18,6 +22,7 @@ const inputComponent = {
 }
 
 const CasesRegister = () => {
+  const { user } = useAuthentication()
   const [isLoading, setIsLoading] = useState(false)
   const [data, setData] = useState(initialData)
 
@@ -25,6 +30,16 @@ const CasesRegister = () => {
     setData((prev) => prev.map((item) =>
       item.key === field ? { ...item, value } : item
     ))
+  }
+
+  const parseDataToObj = (data) => {
+    const obj = {}
+
+    data.forEach(({ key, value }) => {
+      obj[key] = value
+    })
+
+    return obj
   }
   
   const renderComponent = ({ key, ...rest }) => {
@@ -36,11 +51,11 @@ const CasesRegister = () => {
   }
 
   const registerCase = async () => {
+    console.log('firing register case')
     try {
       setIsLoading(true)
-      const response = await API.registerCase(data)
-      alert('registradow')   
-
+      const response = await API.registerCase(user.id, parseDataToObj(data))
+      console.log('registradow', response)   
     } catch (error) {
 
     } finally {
@@ -51,7 +66,7 @@ const CasesRegister = () => {
   return (
     <Container>
       {data.map(renderComponent)}
-      <Button mt="16px">Registrar</Button>
+      <Button mt="16px" onPress={registerCase}>Registrar</Button>
     </Container>
   )
 }
