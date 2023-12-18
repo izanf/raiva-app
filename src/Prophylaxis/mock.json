@@ -1,0 +1,83 @@
+[
+  {
+    "severity": 0,
+    "descricao": "CONTATO INDIRETO",
+    "opcoes": [
+      {
+        "animal": "CÃO OU GATO SEM SUSPEITA DE RAIVA NO MOMENTO DA AGRESSÃO",
+        "recomendacao": "Lavar com água e sabão."
+      },
+      {
+        "animal": "CÃO OU GATO CLINICAMENTE SUSPEITO DE RAIVA NO MOMENTO DA AGRESSÃO",
+        "recomendacao": "Lavar com água e sabão."
+      },
+      {
+        "animal": "CÃO OU GATO RAIVOSO, DESAPARECIDO OU MORTO",
+        "recomendacao": "Lavar com água e sabão."
+      },
+      {
+        "animal": "MORCEGOS E OUTROS ANIMAIS SILVESTRES",
+        "recomendacao": "Lavar com água e sabão."
+      },
+      {
+        "animal": "MAMÍFERO DOMÉSTICO DE INTERESSE ECONÔMICO (BOVINOS, EQUIDEOS, SUÍNOS E OVINOS)",
+        "recomendacao": "Lavar com água e sabão."
+      }
+    ],
+    "locaisVacina": "LOCAIS DE VACINAÇÃO"
+  },
+  {
+    "severity": 1,
+    "descricao": "ACIDENTE LEVE",
+    "opcoes": [
+      {
+        "animal": "CÃO OU GATO SEM SUSPEITA DE RAIVA NO MOMENTO DA AGRESSÃO",
+        "recomendacao": "Lavar com água e sabão; Observar o animal por 10 dias; Iniciar o esquema vacinal com doses nos dias 0, 3, 7 e 14."
+      },
+      {
+        "animal": "CÃO OU GATO CLINICAMENTE SUSPEITO DE RAIVA NO MOMENTO DA AGRESSÃO",
+        "recomendacao": "Lavar com água e sabão; Iniciar o esquema vacinal com 2 doses, dias 0 e 3; Observar o animal por 10 dias, em caso de morte do animal, iniciar o esquema vacinal com doses nos dias 0, 3, 7 e 14."
+      },
+      {
+        "animal": "CÃO OU GATO RAIVOSO, DESAPARECIDO OU MORTO",
+        "recomendacao": "Lavar com água e sabão; Iniciar imediatamente o esquema vacinal com doses nos dias 0, 3, 7 e 14."
+      },
+      {
+        "animal": "MORCEGOS E OUTROS ANIMAIS SILVESTRES",
+        "recomendacao": "Lavar com água e sabão; Iniciar imediatamente o esquema vacinal com doses nos dias 0, 3, 7 e 14."
+      },
+      {
+        "animal": "MAMÍFERO DOMÉSTICO DE INTERESSE ECONÔMICO (BOVINOS, EQUIDEOS, SUÍNOS E OVINOS)",
+        "recomendacao": "Lavar com água e sabão; Iniciar imediatamente o esquema vacinal com doses nos dias 0, 3, 7 e 14."
+      }
+    ],
+    "locaisVacina": "LOCAIS DE VACINAÇÃO"
+  },
+  {
+    "severity": 2,
+    "descricao": "ACIDENTE GRAVE",
+    "opcoes": [
+      {
+        "animal": "CÃO OU GATO SEM SUSPEITA DE RAIVA NO MOMENTO DA AGRESSÃO",
+        "recomendacao": "Lavar com água e sabão; Iniciar o esquema vacinal com 2 doses, dias 0 e 3; Observar o animal por 10 dias, em caso de morte do animal, iniciar o esquema vacinal com doses nos dias 0, 3, 7 e 14."
+      },
+      {
+        "animal": "CÃO OU GATO CLINICAMENTE SUSPEITO DE RAIVA NO MOMENTO DA AGRESSÃO",
+        "recomendacao": "Lavar com água e sabão; Iniciar o esquema vacinal com 4 doses nos dias 0, 3, 7 e 14; Observar o animal por 10 dias, caso permaneça sadio, encerrar o caso."
+      },
+      {
+        "animal": "CÃO OU GATO RAIVOSO, DESAPARECIDO OU MORTO",
+        "recomendacao": "Lavar com água e sabão; Iniciar imediatamente o esquema vacinal com doses nos dias 0, 3, 7 e 14."
+      },
+      {
+        "animal": "MORCEGOS E OUTROS ANIMAIS SILVESTRES",
+        "recomendacao": "Lavar com água e sabão; Iniciar imediatamente o esquema vacinal com doses nos dias 0, 3, 7 e 14 e Soro (SAR ou IGHAR)."
+      },
+      {
+        "animal": "MAMÍFERO DOMÉSTICO DE INTERESSE ECONÔMICO (BOVINOS, EQUIDEOS, SUÍNOS E OVINOS)",
+        "recomendacao": "Lavar com água e sabão; Iniciar imediatamente o esquema vacinal com doses nos dias 0, 3, 7 e 14 e Soro (SAR ou IGHAR)."
+      }
+    ],
+    "locaisVacina": "LOCAIS DE VACINAÇÃO"
+  }
+]

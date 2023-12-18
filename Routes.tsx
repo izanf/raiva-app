@@ -5,8 +5,11 @@ import Login from './src/Auth/Login'
 import Home from './src/Home/Home'
 import CasesList from './src/Cases/List'
 import CasesRegister from './src/Cases/Register'
+import HealthUnits from './src/HealthUnits/HealthUnits'
 import Prophylaxis from './src/Prophylaxis/Prophylaxis'
-import useAuthentication from './src/state/auth';
+import ProphylaxisCategory from './src/Prophylaxis/ProphylaxisCategory'
+
+import useAuthentication from './src/state/auth'
 
 const Stack = createNativeStackNavigator();
 
@@ -20,7 +23,9 @@ const Routes = () => {
           <Stack.Screen name="Home" component={Home} />
           <Stack.Screen name="CasesList" component={CasesList} />
           <Stack.Screen name="CasesRegister" component={CasesRegister} />
+          <Stack.Screen name="HealthUnits" component={HealthUnits} />
           <Stack.Screen name="Prophylaxis" component={Prophylaxis} />
+          <Stack.Screen name="ProphylaxisCategory" component={ProphylaxisCategory} />
         </>
       ) : (
         <>

@@ -1,4 +1,5 @@
 import FontAwesome from '@expo/vector-icons/FontAwesome'
+import theme from '../themes'
 
 interface IconProps {
   name: keyof typeof FontAwesome.glyphMap
@@ -7,7 +8,7 @@ interface IconProps {
 }
 
 const Icon = ({ name, size, color }: IconProps) => (
-  <FontAwesome name={name} size={size} color={color} />
+  <FontAwesome name={name} size={size} color={theme.colors[color]} />
 )
 
 export default Icon

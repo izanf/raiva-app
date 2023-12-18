@@ -18,6 +18,6 @@ export const registerCase = (userId, json) => {
   return api.post(`caso/registrar-caso?usuarioId=${userId}`, { json }).json()
 }
 
-export const listHealthUnities = () => {
-  return api.get('unidades-por-distrito')
+export const listHealthUnities = (): Promise<any[]> => {
+  return api.get('unidades-de-saude/listar').json()
 }

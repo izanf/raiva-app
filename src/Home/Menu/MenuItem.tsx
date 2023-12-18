@@ -6,6 +6,7 @@ const Touchable = styled.TouchableOpacity<{ parentWidth: number }>`
   flex: 1;
   border-radius: ${({ theme }) => theme.borderRadius.sm};
   padding: 16px;
+  margin: 4px;
   alignItems: center;
   background: ${({ theme }) => theme.colors.primary};
   min-width: 150px;

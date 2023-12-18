@@ -2,8 +2,9 @@ import styled from 'styled-components/native'
 
 import { Box } from './'
 
-const Container = styled(Box)`
-  padding: 32px 16px;
+const Container = styled(Box).attrs({
+  px: 16
+})`
 `
 
 export default Container
