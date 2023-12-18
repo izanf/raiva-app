@@ -14,7 +14,7 @@ const ButtonRAW = styled.TouchableOpacity`
   border-radius: 32px;
 `
 
-const Button = ({ children, isLoading, ...props }) => (
+const Button = ({ children, isLoading, ...props }: { children: string, isLoading?: boolean }) => (
   <ButtonRAW {...props}>
     <Text textAlign="center" fontSize="16px" fontWeight="700" color="white">{children}</Text>
     {isLoading && <Loading color="white" ml="16px" />}

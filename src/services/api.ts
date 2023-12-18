@@ -15,7 +15,7 @@ export const listCases = (userId): Promise<any[]> => {
 }
 
 export const registerCase = (userId, json) => {
-  return api.post(`caso/registrar-caso?usuarioId=${userId}`, { json }).json()
+  return api.post(`casos/registrar/${userId}`, { json }).json()
 }
 
 export const listHealthUnities = (): Promise<any[]> => {

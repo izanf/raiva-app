@@ -27,7 +27,7 @@ const ProphylaxisCategory = ({ route }) => {
   }
 
   return (
-    <Container my="16px">
+    <Container>
       {data.map((item, index) => (
         <CollapseContainer key={index} mb="8px">
           <CollapseHeader

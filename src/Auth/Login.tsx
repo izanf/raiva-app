@@ -11,7 +11,7 @@ import Input from '../components/Input'
 const Login = () => {
   const [isLoading, setIsLoading] = useState(false)
   const { login, error } = useAuthentication()
-  const [user, setUser] = useState('017.568.394-84')
+  const [user, setUser] = useState('071.302.054-74')
 
   const handleLogin = async () => {
     try {

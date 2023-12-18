@@ -11,8 +11,8 @@ const Prophylaxis = ({ navigation }) => {
 
   return (
     <Container py="16px">
-      {data.map((item) =>
-        <Button mb="8px" onPress={() => navigateTo(item?.opcoes)}>{item?.descricao}</Button>
+      {data.map((item, index) =>
+        <Button key={index} mb="8px" onPress={() => navigateTo(item?.opcoes)}>{item?.descricao}</Button>
       )}
     </Container>
   )

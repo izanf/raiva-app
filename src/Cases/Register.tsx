@@ -4,7 +4,7 @@ import * as API from '../services/api'
 
 import useAuthentication from '../state/auth'
 
-import { Button, Container, Input } from "../components"
+import { Button, Container, Input, Dropdown } from "../components"
 
 const initialData = [
   { key: 'nomeVitima', label: 'Nome', value: 'Izanderson' },
@@ -21,7 +21,7 @@ const inputComponent = {
   string: Input
 }
 
-const CasesRegister = () => {
+const CasesRegister = ({ navigation }) => {
   const { user } = useAuthentication()
   const [isLoading, setIsLoading] = useState(false)
   const [data, setData] = useState(initialData)
@@ -47,26 +47,31 @@ const CasesRegister = () => {
     const existsComponent = Object.keys(inputComponent).find(item => item === componentType)
     const InputComponent = inputComponent[existsComponent ? componentType : 'string']
 
+    if (componentType === 'boolean') return null
+
     return <InputComponent onChange={(value) => handleChange(key, value)} {...rest} />
   }
 
   const registerCase = async () => {
-    console.log('firing register case')
     try {
       setIsLoading(true)
-      const response = await API.registerCase(user.id, parseDataToObj(data))
-      console.log('registradow', response)   
+
+      await API.registerCase(user.id, parseDataToObj(data))
+
+      navigation.navigate('CasesList')
     } catch (error) {
 
     } finally {
       setIsLoading(false)
-    }
+    } 
   }
 
   return (
     <Container>
       {data.map(renderComponent)}
-      <Button mt="16px" onPress={registerCase}>Registrar</Button>
+      <Dropdown mt="8px" onChange={(value) => handleChange('vacinado', value)} options={[{ label: 'Sim', value: true }, { label: 'Não', value: false }]} />
+      <Dropdown mt="8px" onChange={(value) => handleChange('domestico', value)} options={[{ label: 'Sim', value: true }, { label: 'Não', value: false }]}  />
+      <Button mt="16px" onPress={registerCase} isLoading={isLoading}>Registrar</Button>
     </Container>
   )
 }
