@@ -12,8 +12,8 @@ const Touchable = styled.TouchableOpacity<{ parentWidth: number }>`
   min-width: 150px;
 `
 
-const MenuItem = ({ iconName, title, path, navigation, parentWidth }) => (
-  <Touchable onPress={() => navigation.navigate(path)} parentWidth={parentWidth}>
+const MenuItem = ({ iconName, title, path, params, navigation, parentWidth }) => (
+  <Touchable onPress={() => navigation.navigate(path, params)} parentWidth={parentWidth}>
     <Icon name={iconName} size={48} color="white" />
     <Text pt="16px" fontWeight="bold" textAlign="center">{title}</Text>
   </Touchable>

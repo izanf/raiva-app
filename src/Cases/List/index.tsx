@@ -6,9 +6,12 @@ import { Container, List } from '../../components'
 
 import ListItem from './ListItem'
 import useAuthentication from '../../state/auth'
+import { LoadingScreen } from '../../components/Loading'
 
-const CasesList = () => {
+const CasesList = ({ route }) => {
+  const [isLoading, setIsLoading] = useState(true)
   const { user } = useAuthentication()
+  const isByUser = route?.params?.isByUser
   const [casos, setCasos] = useState([])
 
   const renderComponent = ({ item }) => (
@@ -17,13 +20,24 @@ const CasesList = () => {
 
   useEffect(() => {
     const fetchCases = async () => {
-      const response = await API.listCases(user.id)
+      try {
+        setIsLoading(true)
 
-      setCasos(response)
+        const response = await API.listCases(isByUser && user.id)
+        setCasos(response)
+      } catch (error) {
+        
+      } finally {
+        setIsLoading(false)
+      }
     }
 
     fetchCases()
   }, [])
+
+  if (isLoading) {
+    return <LoadingScreen />
+  }
 
   return (
     <Container>

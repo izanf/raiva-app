@@ -12,7 +12,7 @@ const InputRAW = styled.TextInput<{ borderColor: string }>`
   border-radius: ${({ theme }) => theme.borderRadius.lg};
 `
 
-const Input = ({ label, error,...props }) => {
+const Input = ({ label, error, onChange, ...props }) => {
   const [showError, setShowError] = useState(false)
   const getStatus = () => {
     if (showError && error) return 'danger'
@@ -22,13 +22,13 @@ const Input = ({ label, error,...props }) => {
 
   const handleOnChange = (v) => {
     setShowError(false)
-    props.onChange(v)
+    onChange(v)
   }
 
   return (
     <Box>
-      <Text fontSize="12">{label}</Text>
-      <InputRAW {...props} onChangeText={props.onChange} borderColor={getStatus()} />
+      <Text fontSize="12px">{label}</Text>
+      <InputRAW {...props} onChangeText={handleOnChange} borderColor={getStatus()} />
     </Box>
   )
 }

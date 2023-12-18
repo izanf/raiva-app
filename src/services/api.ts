@@ -11,7 +11,7 @@ export const register = (body) => {
 }
 
 export const listCases = (userId): Promise<any[]> => {
-  return api.get(`caso/casos?usuarioId=${userId}`).json()
+  return api.get(`casos${userId ? '/' + userId : ''}`).json()
 }
 
 export const registerCase = (userId, json) => {

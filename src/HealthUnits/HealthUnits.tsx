@@ -2,22 +2,36 @@ import { useEffect, useState } from "react"
 
 import { Container, List } from "../components"
 
+import { LoadingScreen } from '../components/Loading'
+
 import * as API from '../services/api'
 import UnitCard from "./UnitCard"
 
 
 const HealthUnits = () => {
+  const [isLoading, setIsLoading] = useState(false)
   const [unities, setUnities] = useState([])
 
   useEffect(() => {
     const fetchCases = async () => {
-      const response = await API.listHealthUnities()
+      try {
+        setIsLoading(true)
+        const response = await API.listHealthUnities()
+  
+        setUnities(response)
+      } catch (error) {
 
-      setUnities(response)
+      } finally {
+        setIsLoading(false)
+      }
     }
 
     fetchCases()
   }, [])
+
+  if (isLoading) {
+    return <LoadingScreen />
+  }
 
   return (
     <Container px="0">

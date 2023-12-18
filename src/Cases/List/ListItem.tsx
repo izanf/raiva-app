@@ -17,8 +17,8 @@ const ListItem = ({ id, dataOcorrido, ruaOcorrido }) => (
     <IdWrapper>
       <Text>{id}</Text>
     </IdWrapper>
-    <Text flex="1" pl="8px">{dataOcorrido} - {ruaOcorrido}</Text>
-    <Icon name="arrow-right" />
+    <Text pl="8px">{dataOcorrido} - {ruaOcorrido}</Text>
+    {/* <Icon name="arrow-right" /> */}
   </Box>
 )
 

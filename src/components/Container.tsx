@@ -1,9 +1,9 @@
 import styled from 'styled-components/native'
 
-import { Box } from './'
+import Box from './Box'
 
 const Container = styled(Box).attrs({
-  px: 16
+  p: 16
 })`
 `
 
