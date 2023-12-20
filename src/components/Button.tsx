@@ -1,14 +1,14 @@
 import styled from 'styled-components/native'
-import { space } from 'styled-system'
+import { SpaceProps, space } from 'styled-system'
 
 import Loading from './Loading'
 import Text from './Text'
 
-const ButtonRAW = styled.TouchableOpacity`
+const ButtonRAW = styled.TouchableOpacity<SpaceProps>`
+  ${space}
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  ${space}
   background: ${({ theme }) => theme.colors.primary};
   padding: 20px;
   border-radius: 32px;

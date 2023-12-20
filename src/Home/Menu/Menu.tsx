@@ -4,7 +4,7 @@ import MenuItem from './MenuItem'
 
 const Menu = ({ data, navigation }) => {
   return (
-    <Box flexDirection="row" flexWrap="wrap" gap="8px" px={-4}>
+    <Box flexDirection="row" flexWrap="wrap" px={-4}>
       {data.map((item) => (
         <MenuItem key={item.title} navigation={navigation} {...item} />
       ))}

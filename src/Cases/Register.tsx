@@ -4,15 +4,17 @@ import * as API from '../services/api'
 
 import useAuthentication from '../state/auth'
 
-import { Button, Container, Input, Dropdown } from "../components"
+import { Button, ScrollContainer, Input, Dropdown } from "../components"
+import Datepicker from "../components/Datepicker"
 
 const initialData = [
-  { key: 'nomeVitima', label: 'Nome', value: 'Izanderson' },
-  { key: 'idadeVitima', label: 'Idade', value: '23' },
-  { key: 'dataOcorrido', label: 'Data do evento', value: new Date() },
-  { key: 'tipoAnimal', label: 'Tipo do animal', value: 'Cão' },
-  { key: 'bairroOcorrido', label: 'Local do evento', value: 'Neopolis' },
-  { key: 'localMordida', label: 'Local do animal', value: 'braço' },
+  { key: 'nomeVitima', label: 'Nome', value: '' },
+  { key: 'idadeVitima', label: 'Idade', value: '' },
+  { key: 'dataOcorrido', label: 'Data do evento', value: new Date(), type: 'DateTime' },
+  { key: 'tipoAnimal', label: 'Tipo do animal', value: '' },
+  { key: 'bairroOcorrido', label: 'Bairro ocorrido', value: '' },
+  { key: 'ruaOcorrido', label: 'Rua ocorrido', value: '' },
+  { key: 'localMordida', label: 'Local da mordida', value: '' },
   { key: 'vacinado', label: 'Vacinado', value: false },
   { key: 'domestico', label: 'Domestico', value: false }
 ]
@@ -42,14 +44,15 @@ const CasesRegister = ({ navigation }) => {
     return obj
   }
   
-  const renderComponent = ({ key, ...rest }) => {
+  const renderComponent = ({ key, type, ...rest }, index: number) => {
     const componentType = typeof rest.value
     const existsComponent = Object.keys(inputComponent).find(item => item === componentType)
     const InputComponent = inputComponent[existsComponent ? componentType : 'string']
 
     if (componentType === 'boolean') return null
+    if (type === 'DateTime') return null
 
-    return <InputComponent onChange={(value) => handleChange(key, value)} {...rest} />
+    return <InputComponent key={index} onChange={(value) => handleChange(key, value)} {...rest} zIndex={index} />
   }
 
   const registerCase = async () => {
@@ -67,12 +70,13 @@ const CasesRegister = ({ navigation }) => {
   }
 
   return (
-    <Container>
+    <ScrollContainer>
       {data.map(renderComponent)}
-      <Dropdown mt="8px" onChange={(value) => handleChange('vacinado', value)} options={[{ label: 'Sim', value: true }, { label: 'Não', value: false }]} />
-      <Dropdown mt="8px" onChange={(value) => handleChange('domestico', value)} options={[{ label: 'Sim', value: true }, { label: 'Não', value: false }]}  />
-      <Button mt="16px" onPress={registerCase} isLoading={isLoading}>Registrar</Button>
-    </Container>
+      <Datepicker label="Data do evento" mt="8px" onChange={(value) => handleChange('dataOcorrido', value)} />
+      <Dropdown label="Vacinado" mt="8px" onChange={(value) => handleChange('vacinado', value)} options={[{ label: 'Sim', value: true }, { label: 'Não', value: false }]} />
+      <Dropdown label="Domestico" mt="8px" onChange={(value) => handleChange('domestico', value)} options={[{ label: 'Sim', value: true }, { label: 'Não', value: false }]}  />
+      <Button mt="16px" mb="32px" onPress={registerCase} isLoading={isLoading}>Registrar</Button>
+    </ScrollContainer>
   )
 }
 

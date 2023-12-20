@@ -1,6 +1,6 @@
 import ky from 'ky'
 
-const api = ky.create({ prefixUrl: 'http://localhost:8080/api', headers: { 'Content-Type': 'application/json' } })
+const api = ky.create({ prefixUrl: 'http://34.224.31.137:8080/api', headers: { 'Content-Type': 'application/json' } })
 
 export const login = (json): any => {
   return api.post('usuario/autenticacao', { json }).json()

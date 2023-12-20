@@ -7,4 +7,8 @@ const Container = styled(Box).attrs({
 })`
 `
 
+export const ScrollContainer = styled.ScrollView`
+  padding: 16px;
+`
+
 export default Container
